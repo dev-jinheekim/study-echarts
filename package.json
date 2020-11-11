@@ -2,7 +2,7 @@
   "name": "echarts",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "private": true,
   "dependencies": {
     "echarts": "^4.9.0"
   },
