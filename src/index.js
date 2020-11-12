@@ -11,10 +11,18 @@ const option = {
 // toolbox: {...},
 // dataZoom: [{...}, {...}],
 // visualMap: {...},
-// grid: [{...}],
 // dataset: {
 //   source: [...],
 // },
+grid: [{
+// top
+// right
+// down
+// width
+  left: 100,
+  bottom: 100,
+  height: '20%',
+}],
 xAxis: {
   data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
 },
@@ -27,7 +35,7 @@ series: [{
   data: [5, 10, 15, 5, 10, 15, 5, 10, 15, 20, 15, 20]
 }, {
   type: 'pie',
-  center: ['65%', 60],
+  center: ['50%', 100],
   radius: 35,
   data: [
   {name: 'xx', value: 10},
