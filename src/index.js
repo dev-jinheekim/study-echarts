@@ -39,7 +39,14 @@ series: [{
   center: ['50%', 100],
   radius: 35,
   data: [
-    { name: 'xx', value: 10, itemStyle: { color: 'pink' }},
+    { name: 'xx',
+      value: 10,
+      itemStyle: { color: 'pink' },
+      emphasis: {
+        itemStyle: { color: 'yellow' },
+        label: { show: true , formatter: 'hi' },
+      },
+    },
     { name: 'yy', value: 80, itemStyle: { color: 'white' } },
     { name: 'zz', value: 10, itemStyle: { color: 'red' } },
   ],
