@@ -38,10 +38,20 @@ series: [{
   center: ['50%', 100],
   radius: 35,
   data: [
-  {name: 'xx', value: 10},
-  {name: 'yy', value: 80},
-  {name: 'zz', value: 10},
-  ]
+    { name: 'xx', value: 10, itemStyle: { color: 'pink' }},
+    { name: 'yy', value: 80, itemStyle: { color: 'white' } },
+    { name: 'zz', value: 10, itemStyle: { color: 'red' } },
+  ],
+  labelLine: {
+      lineStyle: {
+          color: 'gray'
+      }
+  },
+  label: {
+      textStyle: {
+          color: 'black'
+      }
+  },
 }]
 }
 myChart.setOption(option);
