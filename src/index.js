@@ -62,4 +62,8 @@ series: [{
   },
 }]
 }
-myChart.setOption(option);
+myChart.showLoading();
+setTimeout(() => {
+  myChart.hideLoading();
+  myChart.setOption(option);
+}, 1000);
