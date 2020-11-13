@@ -67,3 +67,8 @@ setTimeout(() => {
   myChart.hideLoading();
   myChart.setOption(option);
 }, 1000);
+
+setTimeout(() => {
+  option.series[1].data = [15, 20, 5, 15, 0, 1, 15, 10, 1, 0, 5, 2]
+  myChart.setOption(option);
+}, 10000);
