@@ -11,17 +11,18 @@
     padding: 50px;
     background-color: lightgray;
   }
-  #power-usage-status {
+  .chart{
     width: 100%;
     height: 400px;
     background-color: white;
+    margin-bottom: 25px;
   }
 </style>
 
 <h1>DR ECharts 예제</h1>
 <ol>
-  <li id="power-usage-status"></li>
-  <li>감축결과보고서 : 감축현황보기</li>
+  <li id="power-usage-status" class="chart"></li>
+  <li id="reduction-result" class="chart"></li>
   <li>감축결과보고서 : 순서값보기</li>
   <li>감축현황 수요반응자원 총 감축현황 : 감축현황보기</li>
   <li>감축현황 수요반응자원 총 감축현황 : 순서값보기</li>
@@ -37,6 +38,11 @@
 <ol>
   <li>창 사이즈 변경시 차트사이즈가 고정으로 자동변경 안됨</li>
   <li>툴팁스타일이 다름</li>
+</ol>
+<h3>2 감축결과보고서 : 감축현황보기</h3>
+<ol>
+  <li>누적감축률 % 범위 기준확인</li>
+  <li>감축률 데이터 확인</li>
 </ol>
 
 <script src="index.js"></script>
