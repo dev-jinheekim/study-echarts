@@ -1,4 +1,3 @@
-var echarts = require('echarts'); // CommonJs
 const data = {
   lastWeek : {
     '01_cbl': 2128.31,
@@ -161,18 +160,14 @@ function makeChartData(data, filterKey) {
   let result = [];
   for (let key in data) {
     if (key.includes(filterKey)) {
-      time = Number(key.split('_')[0]);
-      result[time] = data[key];
+      let hour = Number(key.split('_')[0]);
+      result[hour] = data[key];
     }
   }
-  console.log(result);
   return result;
 }
 
-console.log(timeAxis);
-
-const myChart = echarts.init(document.getElementById('main'));
-const option = {
+export const option = {
   title: {
     text: '전력사용현황',
   },
@@ -258,13 +253,3 @@ const option = {
     symbolSize: 5, // 라인 포인트 크기
   }]
 }
-
-myChart.showLoading();
-setTimeout(() => {
-  myChart.hideLoading();
-  myChart.setOption(option);
-}, 1000);
-
-setTimeout(() => {
-  myChart.setOption(option);
-}, 10000);
