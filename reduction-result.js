@@ -94,25 +94,52 @@ export const option = {
     text: '감축결과보고서 : 감축현황보기',
   },
   legend: {
-    // data: ['사용량', '감축량', '누적감축률', '감축률', 'CBL', '목표사용량'],
-    data: ['사용량', '감축량'],
-    top: 0,
+    // data: [''누적감축률'],
+    data: [
+      '사용량',
+      { name: '감축량',
+        icon: 'image://data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAIVBMVEX///8jKdaPkegSGtUeJNVESdyLjedHS9y/wPIAANMmLNfAY7wWAAABaUlEQVR4nO3POW7DUABDwWiXfP8Dp07BQvh2QMEzPQG+nx8AAAAAgBHnPj/Lft4s3K/lWa79ZuG8TM+yzAoVtlP41YVrt/HC17E1O16jhetxc/jfjnW0cPvIr/fZFCYKayiMFNZQGCmsoTBSWENhpLCGwkhhDYWRwhoKI4U1FEYKayiMFNZQGCmsoTBSWENhpLCGwkhhDYWRwhoKI4U1FEYKayiMFNZQGCmsoTBSWENhpLCGwkhhDYWRwhoKI4U1FEYKayiMFNZQGCmsoTBSWENhpLCGwkhhDYWRwhoKI4U1FEYKayiMFNZQGCmsoTBSWENhpLCGwkhhDYWRwhoKI4U1FEYKayiMFNZQGCmsoTBSWENhpLCGwkhhDYWRwhoKI4U1FEYKayiMFNZQGCmsoTBSWGO88PjIr/c5Rgun17E1O17TaOG0dpvGCx9CocJ+Cr+wcL+WZ7n2m4XnPj/Lft4sBAAAAAD46xdk4TSZQeSXAQAAAABJRU5ErkJggg==',
+      },
+      '감축률',
+      'CBL',
+      '목표사용량',
+    ],
+    top: 50,
     icon: 'rect',
   }, // 범례 설정
   grid: [{
     left: 50,
-    top: 50,
+    top: 100,
     containLabel: true,
   }], // 차트 위치
   xAxis: {
     type: 'category',
     data: makeXAxis(),
+    // splitLine: {
+    //   show: true,
+    // }, // 축 분할선
+    axisTick: {
+      show: true,
+      alignWithLabel: true, // 축 눈금 위치 변경
+    }, // 축 눈금
+    axisPointer: {
+      type: 'none',
+    } // 마우스 오버시 나타나는 기준선과 축
   },
   yAxis: [{
     name: '감축현황 kW', // 축 이름
     nameLocation: 'middle', // 축 이름 위치
     nameGap: 50, // 축 이름과 축 선 사이 간격
     type: 'value',
+    axisLine: {
+      show: false,
+    }, // 축선
+    splitLine: {
+      show: false,
+    }, // 축 분할선
+    axisTick: {
+      show: false,
+    }, // 축 눈금
   },{
     name: '%', // 축 이름
     nameLocation: 'middle', // 축 이름 위치
@@ -120,21 +147,82 @@ export const option = {
     type: 'value',
     min: 127,
     max: 132,
+    axisLine: {
+      show: false,
+    }, // 축선
+    splitLine: {
+      show: false,
+    }, // 축 분할선
+    axisTick: {
+      show: false,
+    }, // 축 눈금
   }],
   series: [{
     name: '사용량',
     type: 'bar',
     stack: 'stackBar',
     data: makeChartData('v'),
+    itemStyle: {
+      color: 'rgb(98, 207, 115)',
+    },
   },{
     name: '감축량',
     type: 'bar',
     stack: 'stackBar',
     data: makeChartData('reduce_v'),
+    itemStyle: {
+      color: "white",
+      borderWidth: 1,
+      borderColor:'rgb(13, 82, 209)',
+    },
+    emphasis: {
+      itemStyle: 'color',
+    },
   },{
     name: '감축률',
     type: 'line',
     data: makeChartData('reduce_rate'),
     yAxisIndex: 1,
-  }]
+    itemStyle: {
+      color: 'rgb(93, 122, 217)',
+      borderWidth: 2,
+    },
+    symbolSize: 8,
+  },{
+    name: 'CBL',
+    type: 'line',
+    data: makeChartData('cbl'),
+    areaStyle: {}, // 영역형 차트 설정
+    itemStyle: {
+      color: 'rgb(103, 183, 220)',
+      opacity: 0,
+    }, // 라인포인트
+    lineStyle: {
+      opacity: 0,
+    },
+  },{
+    name: '목표사용량',
+    type: 'line',
+    data: makeChartData('target_use_v'),
+    areaStyle: {}, // 영역형 차트 설정
+    itemStyle: {
+      color: 'rgb(253, 212, 0)',
+      opacity: 0,
+    }, // 라인포인트
+    lineStyle: {
+      opacity: 0,
+    }
+  }],
+  tooltip: {
+    show: true,
+    trigger: 'axis',
+    axisPointer: {
+      show: true,
+      type: 'cross',
+      axis: 'x',
+      crossStyle: {
+        type: 'solid',
+      },
+    }, // 마우스 오버시 나타나는 기준선과 축
+  },
 }
