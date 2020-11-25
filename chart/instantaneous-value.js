@@ -88,11 +88,10 @@ function makeChartData(pickKey) {
     return val[pickKey];
   });
 }
-console.log(makeChartData('v'));
 
 export const option = {
   title: {
-    text: '감축결과보고서 : 순서값보기',
+    text: '감축결과보고서 : 순시값보기',
   },
   legend: {
     // data: ['순시값'],

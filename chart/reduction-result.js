@@ -160,7 +160,7 @@ export const option = {
     stack: 'stackBar',
     data: makeChartData('v'),
     itemStyle: {
-      color: 'rgb(98, 207, 115)',
+      color: 'rgba(98, 207, 115, 0.9)',
     },
   },{
     name: '감축량',
