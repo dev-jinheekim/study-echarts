@@ -176,22 +176,24 @@ export const option = {
     bottom: 0,
     icon: 'rect',
   }, // 범례 설정
-  grid: [{
+  grid: {
     left: 50,
     top: 50,
     containLabel: true,
-  }], // 차트 위치
+  }, // 차트 위치
   xAxis: {
+    type: 'category',
     data: timeAxis,
     splitLine: {
       show: true,
     }, // 축 분할선
   },
-  yAxis: [{
+  yAxis: {
+    type: 'value',
     name: 'kW', // 축 이름
     nameLocation: 'middle', // 축 이름 위치
     nameGap: 50, // 축 이름과 축 선 사이 간격
-  }],
+  },
   series: [{
     name: '금일 CBL',
     type: 'line',

@@ -107,17 +107,14 @@ export const option = {
     top: 50,
     icon: 'rect',
   }, // 범례 설정
-  grid: [{
+  grid: {
     left: 50,
     top: 100,
     containLabel: true,
-  }], // 차트 위치
+  }, // 차트 위치
   xAxis: {
     type: 'category',
     data: makeXAxis(),
-    // splitLine: {
-    //   show: true,
-    // }, // 축 분할선
     axisTick: {
       show: true,
       alignWithLabel: true, // 축 눈금 위치 변경
@@ -127,10 +124,10 @@ export const option = {
     } // 마우스 오버시 나타나는 기준선과 축
   },
   yAxis: [{
+    type: 'value',
     name: '감축현황 kW', // 축 이름
     nameLocation: 'middle', // 축 이름 위치
     nameGap: 50, // 축 이름과 축 선 사이 간격
-    type: 'value',
     axisLine: {
       show: false,
     }, // 축선
@@ -141,10 +138,10 @@ export const option = {
       show: false,
     }, // 축 눈금
   },{
+    type: 'value',
     name: '%', // 축 이름
     nameLocation: 'middle', // 축 이름 위치
     nameGap: 50, // 축 이름과 축 선 사이 간격
-    type: 'value',
     min: 127,
     max: 132,
     axisLine: {
