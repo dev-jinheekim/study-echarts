@@ -79,7 +79,7 @@ const data = [
 
 function makeXAxis() {
   return data.map((val) => {
-    return `${val.h} : ${val.m}`
+    return `${val.h}:${val.m}`
   });
 }
 
