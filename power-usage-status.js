@@ -171,19 +171,6 @@ export const option = {
   title: {
     text: '전력사용현황',
   },
-  tooltip: {
-    show: true,
-    trigger: 'axis',
-    formatter: '{b}:00 <br/>{a0} : {c0}kW <br/>{a1} : {c1}kW <br/>{a2} : {c2}kW <br/>{a3} : {c3}kW',
-    axisPointer: {
-      show: true,
-      type: 'cross',
-      trigger: 'axis',
-      crossStyle: {
-        type: 'solid',
-      }
-    }, // 마우스 오버시 나타나는 기준선과 축
-  },
   legend: {
     data: ['금일 CBL', '전주 CBL', '금일사용량', '전일사용량', '전주사용량'],
     bottom: 0,
@@ -196,10 +183,6 @@ export const option = {
   }], // 차트 위치
   xAxis: {
     data: timeAxis,
-//     axisTick: {
-//       show: true,
-//       alignWithLabel: true, // 축 눈금 위치 변경
-//     }, // 축 눈금
     splitLine: {
       show: true,
     }, // 축 분할선
@@ -232,7 +215,7 @@ export const option = {
     }, // 라인포인트
     lineStyle: {
       opacity: 0,
-    }
+    },
   },{
     name: '금일사용량',
     type: 'line',
@@ -251,5 +234,18 @@ export const option = {
     data: makeChartData(data.lastWeek, 'v'),
     symbol: 'circle', // 라인 포인트 모양
     symbolSize: 5, // 라인 포인트 크기
-  }]
+  }],
+  tooltip: {
+    show: true,
+    trigger: 'axis',
+    formatter: '{b}:00 <br/>{a0} : {c0}kW <br/>{a1} : {c1}kW <br/>{a2} : {c2}kW <br/>{a3} : {c3}kW',
+    axisPointer: {
+      show: true,
+      type: 'cross',
+      trigger: 'axis',
+      crossStyle: {
+        type: 'solid',
+      },
+    }, // 마우스 오버시 나타나는 기준선과 축
+  },
 }
