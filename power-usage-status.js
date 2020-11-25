@@ -200,7 +200,7 @@ export const option = {
     data: makeChartData(data.today, 'cbl'),
     areaStyle: {}, // 영역형 차트 설정
     itemStyle: {
-      color: 'rgb(59, 156, 56)',
+      color: 'rgba(59, 156, 56, 0.4)',
       opacity: 0,
     }, // 라인포인트
     lineStyle: {
@@ -212,7 +212,7 @@ export const option = {
     data: makeChartData(data.lastWeek, 'cbl'),
     areaStyle: {}, // 영역형 차트 설정
     itemStyle: {
-      color: 'rgb(43, 119, 173)',
+      color: 'rgba(43, 119, 173, 0.4)',
       opacity: 0,
     }, // 라인포인트
     lineStyle: {
@@ -224,18 +224,27 @@ export const option = {
     data: makeChartData(data.today, 'v'),
     symbol: 'circle', // 라인 포인트 모양
     symbolSize: 5, // 라인 포인트 크기
+    itemStyle: {
+      color: 'rgb(59, 156, 56)',
+    }, // 라인포인트
   },{
     name: '전일사용량',
     type: 'line',
     data: makeChartData(data.yesterday, 'v'),
     symbol: 'circle', // 라인 포인트 모양
     symbolSize: 5, // 라인 포인트 크기
+    itemStyle: {
+      color: 'rgb(247, 127, 57)',
+    }, // 라인포인트
   },{
     name: '전주사용량',
     type: 'line',
     data: makeChartData(data.lastWeek, 'v'),
     symbol: 'circle', // 라인 포인트 모양
     symbolSize: 5, // 라인 포인트 크기
+    itemStyle: {
+      color: 'rgb(43, 119, 173)',
+    }, // 라인포인트
   }],
   tooltip: {
     show: true,
