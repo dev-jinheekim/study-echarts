@@ -19003,16 +19003,14 @@ const data = [
 
 function makeXAxis() {
   return data.map((val) => {
-    return new Date(`${val.ymd.slice(0,4)}-${val.ymd.slice(4,6)}-${val.ymd.slice(6,8)}T${val.h}:${val.m}`);
+    return `${val.ymd.slice(0,4)}-${val.ymd.slice(4,6)}-${val.ymd.slice(6,8)} ${val.h}:${val.m}`;
   });
 }
-
 function makeChartData(pickKey) {
   return data.map((val) => {
     return val[pickKey];
   });
 }
-
 export const option = {
   title: {
     text: '전력사용량통계 : 평면차트',
@@ -19039,7 +19037,7 @@ export const option = {
     }, // 축 분할선
     axisPointer: {
       type: 'none',
-    } // 마우스 오버시 나타나는 기준선과 축
+    }, // 마우스 오버시 나타나는 기준선과 축
   },
   yAxis: {
     category: 'value',

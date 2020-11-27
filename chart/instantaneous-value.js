@@ -116,7 +116,7 @@ export const option = {
     }, // 축 분할선
     axisPointer: {
       type: 'none',
-    } // 마우스 오버시 나타나는 기준선과 축
+    }, // 마우스 오버시 나타나는 기준선과 축
   },
   yAxis: {
     category: 'value',

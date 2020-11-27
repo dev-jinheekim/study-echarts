@@ -121,7 +121,7 @@ export const option = {
     }, // 축 눈금
     axisPointer: {
       type: 'none',
-    } // 마우스 오버시 나타나는 기준선과 축
+    }, // 마우스 오버시 나타나는 기준선과 축
   },
   yAxis: [{
     type: 'value',
