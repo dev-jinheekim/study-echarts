@@ -15,7 +15,7 @@
     width: 100%;
     height: 400px;
     background-color: white;
-    margin-bottom: 25px;
+    margin-bottom: 25px;npm
   }
 </style>
 
@@ -26,20 +26,21 @@
   <li id="instantaneous-value" class="chart"></li>
   <li id="power-usage-statistics-2d" class="chart"></li>
   <li>전력사용량통계 : 3D차트</li>
-  <li>전력사용량통계 : 시각화분석차트</li>
+  <li id="power-usage-statistics-visualization-analysis" class="chart"></li>
+
   <li>감축현황 : 수요반응자원 총 감축현황 감축현황보기</li>
   <li>감축현황 : 수요반응자원 총 감축현황 순시값보기</li>
-  <li>참여고객별 감축현황 상세 : 감축현황보기</li>
-  <li>참여고객별 감축현황 상세 : 순서값보기</li>
+  <li>감축현황 : 참여고객별 감축현황 상세 감축현황보기</li>
+  <li>감축현황 : 참여고객별 감축현황 상세 순서값보기</li>
 </ol>
 
 <h2>차트전환이슈</h2>
+
 <h3>공통</h3>
 <ol>
   <li>창 사이즈 변경시 차트사이즈가 고정으로 자동변경 안됨. 문제 없는지 문의</li>
   <li>툴팁이 한개로 합쳐져서 표현됨. 디자인 문제 없는지 문의</li>
-  <li>데이터가 없어서 확인이 어려운 페이지 확인방법 문의</li>
-  <li>툴팁 callback 함수를 활용한 커스터마이징 학습 필요</li>
+  <li>감축현황 그래프 스타일, 데이터 확인 가능 밥법 문의</li>
 </ol>
 <h3>2 감축결과보고서 : 감축현황보기</h3>
 <ol>
@@ -50,7 +51,16 @@
 <ol>
   <li>API 데이터에서 순시값이 있는지 문의</li>
 </ol>
+<h3>4 전력사용량통계 : 평면차트</h3>
+<ol>
+  <li>시간 축 표시 방법이 다름. 문제 없는지 문의</li>
+</ol>
 
+<h3>+ 시간이 좀 필요한 작업</h3>
+<ol>
+  <li>툴팁 callback 함수를 활용한 커스터마이징 학습 필요</li>
+  <li>시간축 라벨 커스터마이징 학습 필요</li>
+</ol>
 <script src="index.js"></script>
 </body>
 </html>
