@@ -1,4 +1,5 @@
 import * as echarts from 'echarts';
+import 'echarts-gl'; // type : bar3D
 import {option as powerUsageStatusOption} from '/chart/power-usage-status.js'
 import {option as reductionResultOption} from '/chart/reduction-result.js'
 import {option as instantaneousValueOption} from '/chart/instantaneous-value.js'

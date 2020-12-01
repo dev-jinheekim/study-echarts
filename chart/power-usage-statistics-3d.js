@@ -19001,88 +19001,50 @@ const data = [
   }
 ];
 
-function makeXAxis() {
+function makeChartData() {
   return data.map((val) => {
-    return `${val.ymd.slice(0,4)}-${val.ymd.slice(4,6)}-${val.ymd.slice(6,8)} ${val.h}:${val.m}`;
+    return [val.v, val.h + ':' + val.m, val.ymd.slice(0,4) + '-' + val.ymd.slice(4,6) + '-' + val.ymd.slice(6,8)];
   });
 }
-function makeChartData(pickKey) {
-  return data.map((val) => {
-    return val[pickKey];
-  });
-}
+console.log(makeChartData());
+
 export const option = {
   title: {
     text: '전력사용량통계 : 3D차트',
   },
-  legend: {
-    data: ['사용량, 순시값'],
-    top: 50,
-    icon: 'rect',
-  }, // 범례 설정
   grid: {
     left: 50,
     top: 100,
     containLabel: true,
   }, // 차트 위치
-  xAxis: {
-    category: 'time',
-    data: makeXAxis(),
-    axisTick: {
-      show: true,
-      alignWithLabel: true, // 축 눈금 위치 변경
-    }, // 축 눈금
-    splitLine: {
-      show: true,
-    }, // 축 분할선
-    axisPointer: {
-      type: 'none',
-    }, // 마우스 오버시 나타나는 기준선과 축
+  grid3D: {},
+  xAxis3D: {
+    type: 'category',
   },
-  yAxis: {
-    category: 'value',
-    name: 'kW', // 축 이름
-    nameLocation: 'middle', // 축 이름 위치
-    nameGap: 50, // 축 이름과 축 선 사이 간격
+  yAxis3D: {
+    type: 'category',
+  },
+  zAxis3D: {},
+  visualMap: {
+    dimension: 'usage',
+  },
+  dataset: {
+    dimensions: [
+      'usage',
+      'hour',
+      'day',
+    ],
+    source: makeChartData(),
   },
   series: [{
-    name: '사용량',
-    type: 'line',
-    data: makeChartData('v'),
-    areaStyle: {}, // 영역형 차트 설정
-    itemStyle: {
-      color: 'rgba(98, 207, 115, 0.9)',
-      opacity: 0,
-    }, // 라인포인트
-    lineStyle: {
-      opacity: 0,
-    },
-  },{
-    name: '순시값',
-    type: 'line',
-    data: makeChartData('en_v'),
-    areaStyle: {}, // 영역형 차트 설정
-    itemStyle: {
-      color: 'rgba(103, 183, 220, 0.9)',
-      opacity: 0,
-    }, // 라인포인트
-    lineStyle: {
-      opacity: 0,
+    type: 'bar3D',
+    shading: 'lambert',
+    encode: {
+      z: 'usage',
+      y: 'hour',
+      x: 'day',
+      tooltip: [0, 1, 2]
     },
   }],
-  dataZoom: [{
-    show: true,
-  }],
-  tooltip: {
-    show: true,
-    trigger: 'axis',
-    axisPointer: {
-      show: true,
-      type: 'cross',
-      axis: 'x',
-      crossStyle: {
-        type: 'solid',
-      },
-    }, // 마우스 오버시 나타나는 기준선과 축
-  },
+  tooltip: {},
 }
