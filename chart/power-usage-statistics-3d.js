@@ -19003,7 +19003,10 @@ const data = [
 
 function makeChartData() {
   return data.map((val) => {
-    return [val.v, val.h + ':' + val.m, val.ymd.slice(0,4) + '-' + val.ymd.slice(4,6) + '-' + val.ymd.slice(6,8)];
+    const date = `${val.ymd.slice(0,4)}-${val.ymd.slice(4,6)}-${val.ymd.slice(6,8)}`
+    const time = `${val.h}:${val.m}`;
+    const usage = val.v;
+    return [date, time, usage];
   });
 }
 console.log(makeChartData());
@@ -19017,34 +19020,45 @@ export const option = {
     top: 100,
     containLabel: true,
   }, // 차트 위치
-  grid3D: {},
+  grid3D: {
+  },
   xAxis3D: {
     type: 'category',
   },
   yAxis3D: {
     type: 'category',
   },
-  zAxis3D: {},
+  zAxis3D: {
+  },
   visualMap: {
     dimension: 'usage',
   },
   dataset: {
     dimensions: [
+      'date',
+      'time',
       'usage',
-      'hour',
-      'day',
     ],
     source: makeChartData(),
   },
   series: [{
+    name: 'Power usage statistics',
     type: 'bar3D',
     shading: 'lambert',
     encode: {
+      x: 'date',
+      y: 'time',
       z: 'usage',
-      y: 'hour',
-      x: 'day',
-      tooltip: [0, 1, 2]
+    },
+    emphasis: {
+      label: {
+        show: false,
+        // formatter: (params)=>{
+        //   return `${params.value[2]} ${params.value[1]}`
+        // },
+      },
     },
   }],
-  tooltip: {},
+  tooltip: {
+  },
 }
