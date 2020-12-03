@@ -21,6 +21,7 @@
 
 <h1>DR ECharts 예제</h1>
 <ol>
+  <button id="dataChange">전력사용현황 데이터변경</button>
   <li id="power-usage-status" class="chart"></li>
   <li id="reduction-result" class="chart"></li>
   <li id="instantaneous-value" class="chart"></li>
@@ -38,9 +39,12 @@
 
 <h3>공통</h3>
 <ol>
-  <li>창 사이즈 변경시 차트사이즈가 고정으로 자동변경 안됨. 문제 없는지 문의</li>
   <li>툴팁이 한개로 합쳐져서 표현됨. 디자인 문제 없는지 문의</li>
   <li>감축현황 그래프 스타일, 데이터 확인 가능 밥법 문의</li>
+</ol>
+<h3>1 전력사용현황</h3>
+<ol>
+  <li>5분데이터, 15분 데이터 차이점이 무엇인지</li>
 </ol>
 <h3>2 감축결과보고서 : 감축현황보기</h3>
 <ol>
@@ -60,8 +64,8 @@
 <ol>
   <li>툴팁 callback 함수를 활용한 커스터마이징 학습 필요</li>
   <li>시간축 라벨 커스터마이징 학습 필요</li>
-  <li>차트 변경 이벤트 추가</li>
 </ol>
-<script src="index.js"></script>
+<script src="./index.js">
+</script>
 </body>
 </html>
