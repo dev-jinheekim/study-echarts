@@ -19009,7 +19009,6 @@ function makeChartData() {
     return [date, time, usage];
   });
 }
-console.log(makeChartData());
 
 export const option = {
   title: {

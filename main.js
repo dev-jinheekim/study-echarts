@@ -24,3 +24,13 @@ const dataChangeButton = document.getElementById('dataChange');
 dataChangeButton.addEventListener('click', () => {
   dataChange();
 });
+
+// 창 사이즈 변경시 차트사이즈 변경
+window.addEventListener('resize', (event) => {
+  powerUsageStatus.resize({ width: 'auto', });
+  reductionResult.resize({ width: 'auto', });
+  instantaneousValue.resize({ width: 'auto', });
+  powerUsageStatistics2d.resize({ width: 'auto', });
+  powerUsageStatistics3d.resize({ width: 'auto', });
+  powerUsageStatisticsVisualizationAnalysis.resize({ width: 'auto', });
+});
