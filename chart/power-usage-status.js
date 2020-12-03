@@ -305,7 +305,7 @@ const data2 = {
     "24_cbl": 326.98
   }
 };
-const powerUsageStatus = echarts.init(document.getElementById('power-usage-status'));
+const echart = echarts.init(document.getElementById('power-usage-status'));
 
 function createChartAxis() {
   const timeAxis = [];
@@ -427,10 +427,10 @@ function createChart(element, option) {
 }
 
 function dataChange() {
-  powerUsageStatus.setOption(createOption(flag ? data : data2));
+  echart.setOption(createOption(flag ? data : data2));
   flag = !flag;
 }
 
-createChart(powerUsageStatus, createOption(data));
+createChart(echart, createOption(data));
 
-export {dataChange, powerUsageStatus}
+export {dataChange, echart}

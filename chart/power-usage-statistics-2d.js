@@ -1,3 +1,5 @@
+import * as echarts from 'echarts'
+
 const data = [
   {
     "ymd": "20201101",
@@ -19000,6 +19002,7 @@ const data = [
     "cbl": 0
   }
 ];
+export const echart = echarts.init(document.getElementById('power-usage-statistics-2d'));
 
 function makeXAxis() {
   return data.map((val) => {
@@ -19011,7 +19014,8 @@ function makeChartData(pickKey) {
     return val[pickKey];
   });
 }
-export const option = {
+
+const option = {
   title: {
     text: '전력사용량통계 : 평면차트',
   },
@@ -19086,3 +19090,5 @@ export const option = {
     }, // 마우스 오버시 나타나는 기준선과 축
   },
 }
+
+echart.setOption(option);

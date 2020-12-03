@@ -1,3 +1,5 @@
+import * as echarts from 'echarts'
+
 const data = [
   {
     "ymd": "20201101",
@@ -19003,6 +19005,7 @@ const data = [
 let timeAxis = [];
 const dayOfWeeks = ['일', '월', '화', '수', '목', '금', '토'];
 let hourArray = []; // 시간별 요일 값
+export const echart = echarts.init(document.getElementById('power-usage-statistics-visualization-analysis'));
 
 for (let i = 0; i <= 24; i++) { // 시간
   timeAxis.push(i);
@@ -19029,7 +19032,7 @@ function makeChartData() {
   return result;
 }
 
-export const option = {
+const option = {
   title: {
     text: '전력사용량통계 : 시각화분석차트',
   },
@@ -19062,3 +19065,5 @@ export const option = {
     data: makeChartData(),
   },
 }
+
+echart.setOption(option);

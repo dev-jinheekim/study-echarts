@@ -1,3 +1,5 @@
+import * as echarts from 'echarts'
+
 const data = [
   {
     "ymd": "20201101",
@@ -19000,6 +19002,7 @@ const data = [
     "cbl": 0
   }
 ];
+export const echart = echarts.init(document.getElementById('power-usage-statistics-3d'));
 
 function makeChartData() {
   return data.map((val) => {
@@ -19010,7 +19013,7 @@ function makeChartData() {
   });
 }
 
-export const option = {
+const option = {
   title: {
     text: '전력사용량통계 : 3D차트',
   },
@@ -19061,3 +19064,5 @@ export const option = {
   tooltip: {
   },
 }
+
+echart.setOption(option);

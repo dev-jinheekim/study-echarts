@@ -1,3 +1,5 @@
+import * as echarts from 'echarts'
+
 const data = [
   {
     "contract_count": 12,
@@ -76,6 +78,7 @@ const data = [
     "reduce_rate_accumulated_dr": "130.149480300195981500000000000000"
   }
 ];
+export const echart = echarts.init(document.getElementById('instantaneous-value'));
 
 function makeXAxis() {
   return data.map((val) => {
@@ -89,7 +92,7 @@ function makeChartData(pickKey) {
   });
 }
 
-export const option = {
+const option = {
   title: {
     text: '감축결과보고서 : 순시값보기',
   },
@@ -153,3 +156,5 @@ export const option = {
     }, // 마우스 오버시 나타나는 기준선과 축
   },
 }
+
+echart.setOption(option);
