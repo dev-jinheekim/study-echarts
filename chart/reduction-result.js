@@ -92,7 +92,7 @@ function makeChartData(pickKey) {
   });
 }
 
-const option = {
+export const option = {
   title: {
     text: '감축결과보고서 : 감축현황보기',
   },

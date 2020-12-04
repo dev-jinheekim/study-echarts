@@ -19015,7 +19015,7 @@ function makeChartData(pickKey) {
   });
 }
 
-const option = {
+export const option = {
   title: {
     text: '전력사용량통계 : 평면차트',
   },
