@@ -19037,10 +19037,9 @@ const option = {
     data: makeChartData(sumUsage(data)),
   },
 }
-
 function makeChartXAxis() {
   let timeAxis = [];
-  for (let i = 0; i <= 24; i++) { // 시간
+  for (let i = 0; i < 24; i++) { // 시간
     timeAxis.push(i);
   }
   return timeAxis;
@@ -19049,7 +19048,7 @@ function makeChartXAxis() {
 function createUsageHourArray() {
   let usageHour = []; // 시간별 요일 사용 값
   // FIX : i < 24
-  for (let i = 0; i <= 24; i++) { // 시간
+  for (let i = 0; i < 24; i++) { // 시간
     usageHour.push([0, 0, 0, 0, 0, 0, 0]); // 요일
   }
   return usageHour;
@@ -19058,7 +19057,7 @@ function createUsageHourArray() {
 function sumUsage(usageByMinute) {
   let usageByHour = createUsageHourArray();
   usageByMinute.forEach((val) => {
-    const hour = Number(val.h); // 시간
+    const hour = val.h === "24" ? 23 : Number(val.h); // 시간
     const dayOfTheWeek = new Date(`${val.ymd.slice(0,4)}-${val.ymd.slice(4,6)}-${val.ymd.slice(6,8)}`).getDay(); // 요일
     usageByHour[hour][dayOfTheWeek] += val.v;
   });
