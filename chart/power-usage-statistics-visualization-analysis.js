@@ -19002,35 +19002,7 @@ const data = [
     "cbl": 0
   }
 ];
-let timeAxis = [];
-const dayOfWeeks = ['일', '월', '화', '수', '목', '금', '토'];
-let hourArray = []; // 시간별 요일 값
 export const echart = echarts.init(document.getElementById('power-usage-statistics-visualization-analysis'));
-
-for (let i = 0; i <= 24; i++) { // 시간
-  timeAxis.push(i);
-  hourArray.push([0, 0, 0, 0, 0, 0, 0]); // 요일
-}
-
-function sumUsageByHour() {
-  return data.map((val) => {
-    const hour = Number(val.h); // 시간
-    const dayOfTheWeek = new Date(`${val.ymd.slice(0,4)}-${val.ymd.slice(4,6)}-${val.ymd.slice(6,8)}`).getDay(); // 요일
-    hourArray[hour][dayOfTheWeek] += val.v;
-  });
-}
-
-sumUsageByHour();
-
-function makeChartData() {
-  let result = [];
-  hourArray.forEach((dayOfWeeksArray, hourIndex) => {
-    dayOfWeeksArray.map((val, dayOfWeeksIndex) => {
-      result.push([hourIndex, dayOfWeeksIndex, val]);
-    })
-  });
-  return result;
-}
 
 const option = {
   title: {
@@ -19048,11 +19020,11 @@ const option = {
   }, // 차트 위치
   xAxis: {
     type: 'category',
-    data: timeAxis,
+    data: makeChartXAxis(),
   },
   yAxis: {
     type: 'category',
-    data: dayOfWeeks,
+    data: ['일', '월', '화', '수', '목', '금', '토'],
   },
   visualMap: {
     orient: 'horizontal',
@@ -19062,8 +19034,45 @@ const option = {
   },
   series: {
     type: 'heatmap',
-    data: makeChartData(),
+    data: makeChartData(sumUsage(data)),
   },
+}
+
+function makeChartXAxis() {
+  let timeAxis = [];
+  for (let i = 0; i <= 24; i++) { // 시간
+    timeAxis.push(i);
+  }
+  return timeAxis;
+}
+
+function createUsageHourArray() {
+  let usageHour = []; // 시간별 요일 사용 값
+  // FIX : i < 24
+  for (let i = 0; i <= 24; i++) { // 시간
+    usageHour.push([0, 0, 0, 0, 0, 0, 0]); // 요일
+  }
+  return usageHour;
+}
+
+function sumUsage(usageByMinute) {
+  let usageByHour = createUsageHourArray();
+  usageByMinute.forEach((val) => {
+    const hour = Number(val.h); // 시간
+    const dayOfTheWeek = new Date(`${val.ymd.slice(0,4)}-${val.ymd.slice(4,6)}-${val.ymd.slice(6,8)}`).getDay(); // 요일
+    usageByHour[hour][dayOfTheWeek] += val.v;
+  });
+  return usageByHour;
+}
+
+function makeChartData(data) {
+  let result = [];
+  data.forEach((dayOfTheWeeksArray, hourIndex) => {
+    dayOfTheWeeksArray.map((val, dayOfWeeksIndex) => {
+      result.push([hourIndex, dayOfWeeksIndex, val]);
+    })
+  });
+  return result;
 }
 
 echart.setOption(option);
