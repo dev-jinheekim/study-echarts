@@ -19057,7 +19057,7 @@ function createUsageHourArray() {
 function sumUsage(usageByMinute) {
   let usageByHour = createUsageHourArray();
   usageByMinute.forEach((val) => {
-    const hour = val.h === "24" ? 23 : Number(val.h); // 시간
+    const hour = (val.h === "24") ? 23 : Number(val.h); // 시간
     const dayOfTheWeek = new Date(`${val.ymd.slice(0,4)}-${val.ymd.slice(4,6)}-${val.ymd.slice(6,8)}`).getDay(); // 요일
     usageByHour[hour][dayOfTheWeek] += val.v;
   });

@@ -1,5 +1,5 @@
 import 'echarts-gl'; // bar3D
-import {echart as powerUsageStatus, dataChange} from '/chart/power-usage-status.js'
+import {echart as powerUsageStatus, changeData} from '/chart/power-usage-status.js'
 import {echart as reductionResult} from '/chart/reduction-result.js'
 import {echart as instantaneousValue} from '/chart/instantaneous-value.js'
 import {echart as powerUsageStatistics2d} from '/chart/power-usage-statistics-2d.js'
@@ -7,9 +7,9 @@ import {echart as powerUsageStatistics3d} from '/chart/power-usage-statistics-3d
 import {echart as powerUsageStatisticsVisualizationAnalysis} from '/chart/power-usage-statistics-visualization-analysis'
 
 // 전력사용현황 차트 데이터 변경
-const dataChangeButton = document.getElementById('dataChange');
+const dataChangeButton = document.getElementById('changeData');
 dataChangeButton.addEventListener('click', () => {
-  dataChange();
+  changeData();
 });
 
 // 창 사이즈 변경시 차트사이즈 변경

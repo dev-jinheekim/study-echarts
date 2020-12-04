@@ -305,7 +305,7 @@ const data2 = {
     "24_cbl": 326.98
   }
 };
-const echart = echarts.init(document.getElementById('power-usage-status'));
+export const echart = echarts.init(document.getElementById('power-usage-status'));
 
 function createChartAxis() {
   const timeAxis = [];
@@ -426,11 +426,9 @@ function createChart(element, option) {
   element.setOption(option);
 }
 
-function dataChange() {
+export function changeData() {
   echart.setOption(createOption(flag ? data : data2));
   flag = !flag;
 }
 
 createChart(echart, createOption(data));
-
-export {dataChange, echart}

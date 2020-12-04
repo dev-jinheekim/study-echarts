@@ -1,4 +1,5 @@
 import * as echarts from 'echarts'
+import 'echarts-gl'; // bar3D
 
 const data = [
   {
